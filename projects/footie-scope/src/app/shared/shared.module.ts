@@ -11,6 +11,13 @@ import { MatButtonModule } from '@angular/material/button';
     RouterModule,
     //Material
     MatButtonModule
+  ],
+  exports: [
+    //Core
+    CommonModule,
+    RouterModule,
+    //Material
+    MatButtonModule
   ]
 })
 export class SharedModule { }
