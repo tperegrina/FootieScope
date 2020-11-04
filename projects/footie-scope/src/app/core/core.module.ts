@@ -17,7 +17,7 @@ import { MainLayoutComponent } from './layout/main-layout/main-layout.component'
     HttpClientModule,
     //material
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   exports: [MainLayoutComponent]
 })
