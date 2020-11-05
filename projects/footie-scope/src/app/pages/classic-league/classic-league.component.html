@@ -1,4 +1,6 @@
-<h1> {{league?.league?.name}} </h1>
+<div class="titleRow">
+    <h1> {{league?.league?.name}} </h1>
+</div>
 <table mat-table #ClassicLeagueTable [dataSource]="standings">
     <ng-container matColumnDef="rank">
         <th mat-header-cell *matHeaderCellDef> Rank </th>
@@ -15,10 +17,22 @@
     <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Team Name & Manager </th>
         <td mat-cell *matCellDef="let standing"> 
-            <p color="primary">{{standing.entry_name}}</p>
+            <strong color="primary">{{standing.entry_name}}</strong>
             <p>{{standing.player_name}}</p>
         </td>
     </ng-container>
-    <tr mat-header-row *matHeaderRowDef="['rank','rank_icon', 'name']"></tr>
-    <tr mat-row *matRowDef="let row; columns: ['rank', 'rank_icon', 'name'];"></tr>
+    <ng-container matColumnDef="gw_points">
+        <th mat-header-cell *matHeaderCellDef> GW Points </th>
+        <td mat-cell *matCellDef="let standing"> 
+            <p>{{standing.event_total}}</p>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="total_points">
+        <th mat-header-cell *matHeaderCellDef> Total Points </th>
+        <td mat-cell *matCellDef="let standing"> 
+            <p>{{standing.total}}</p>
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="['rank','rank_icon', 'name', 'gw_points', 'total_points']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['rank', 'rank_icon', 'name', 'gw_points', 'total_points'];"></tr>
 </table>
