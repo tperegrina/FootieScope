@@ -8,11 +8,11 @@ enum Rank {
   NO_CHANGE
 }
 @Component({
-  selector: 'footie-sc-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'footie-sc-classic-league',
+  templateUrl: './classic-league.component.html',
+  styleUrls: ['./classic-league.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class ClassicLeagueComponent implements OnInit {
   public league: LeagueClassic;
   public standings: StandingResult[] = []
   public eRank = Rank;
@@ -31,7 +31,6 @@ export class HomeComponent implements OnInit {
   }
 
   public isRankIncreased(current: number, previous: number) {
-    console.log(current, previous);
     if (current == previous) {
       return Rank.NO_CHANGE;
     } else if ( current - previous < 0 ) {

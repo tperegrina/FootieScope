@@ -1,4 +1,4 @@
-<h1> {{league.league.name}} </h1>
+<h1> {{league?.league?.name}} </h1>
 <table mat-table #ClassicLeagueTable [dataSource]="standings">
     <ng-container matColumnDef="rank">
         <th mat-header-cell *matHeaderCellDef> Rank </th>
