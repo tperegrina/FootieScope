@@ -2,16 +2,16 @@
     <h1 class="mat-h1"> {{league?.league?.name}} </h1>
 </div>
 <table mat-table #ClassicLeagueTable [dataSource]="standings">
+    <ng-container matColumnDef="rank_icon">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let standing">
+            <footie-sc-rank-icon [current]="standing.rank" [previous]="standing.last_rank"></footie-sc-rank-icon>
+        </td>
+    </ng-container>
     <ng-container matColumnDef="rank">
         <th mat-header-cell *matHeaderCellDef> Rank </th>
         <td mat-cell *matCellDef="let standing"> 
             {{standing.rank}}
-        </td>
-    </ng-container>
-    <ng-container matColumnDef="rank_icon">
-        <th mat-header-cell *matHeaderCellDef> - </th>
-        <td mat-cell *matCellDef="let standing">
-            <footie-sc-rank-icon [current]="standing.rank" [previous]="standing.last_rank"></footie-sc-rank-icon>
         </td>
     </ng-container>
     <ng-container matColumnDef="name">
@@ -22,17 +22,17 @@
         </td>
     </ng-container>
     <ng-container matColumnDef="gw_points">
-        <th mat-header-cell *matHeaderCellDef> GW Points </th>
+        <th mat-header-cell *matHeaderCellDef> GW </th>
         <td mat-cell *matCellDef="let standing"> 
             <p>{{standing.event_total}}</p>
         </td>
     </ng-container>
     <ng-container matColumnDef="total_points">
-        <th mat-header-cell *matHeaderCellDef> Total Points </th>
+        <th mat-header-cell *matHeaderCellDef> Total </th>
         <td mat-cell *matCellDef="let standing"> 
             <p>{{standing.total}}</p>
         </td>
     </ng-container>
-    <tr mat-header-row *matHeaderRowDef="['rank','rank_icon', 'name', 'gw_points', 'total_points']"></tr>
-    <tr mat-row *matRowDef="let row; columns: ['rank', 'rank_icon', 'name', 'gw_points', 'total_points'];"></tr>
+    <tr mat-header-row *matHeaderRowDef="['rank_icon','rank', 'name', 'gw_points', 'total_points']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['rank_icon', 'rank', 'name', 'gw_points', 'total_points'];"></tr>
 </table>

@@ -1,0 +1,18 @@
+@mixin rank-icon-theme($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($map: $theme, $key: accent);
+    $warn: map-get($map: $theme, $key: warn);
+    $primary-color: mat-color($primary, default);
+    $accent-color: mat-color($accent, default);
+    $warn-color: mat-color($warn, default);
+
+    mat-icon[color="primary"] {
+        color: $primary-color
+    }
+    mat-icon[color="accent"] {
+        color: $accent-color;
+    }
+    mat-icon[color="warn"] {
+        color: $warn-color;
+    }
+}

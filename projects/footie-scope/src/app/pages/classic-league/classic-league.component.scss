@@ -1,10 +1,18 @@
 
-table.mat-table {
-    margin: auto;
-    width: 80%;
-}
-
-div.titleRow {
-    display: flex;
-    justify-content: center;
+@mixin classic-league-theme($theme) {
+    $primary: map-get($map: $theme, $key: primary);
+    $accent: map-get($map: $theme, $key: accent);
+    $warn: map-get($map: $theme, $key: warn);
+    table.mat-table {
+        margin: auto;
+        width: 80%;
+    }
+    
+    div.titleRow {
+        display: flex;
+        justify-content: center;
+    }
+    th.mat-header-cell {
+        padding: 0 5px;
+    }
 }
