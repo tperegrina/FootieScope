@@ -15,28 +15,37 @@
 // $footie-scope-primary: mat-palette($mat-indigo);
 // $footie-scope-accent: mat-palette($mat-pink, A200, A100, A400);
 
-$footie-scope-primary: mat-palette($mat-light-blue, A400, A300, A500);
-$footie-scope-accent: mat-palette($mat-red, A100, 100, 300); 
+$light-primary: mat-palette($mat-purple);
+$light-accent: mat-palette($mat-green); 
 
 // The warn palette is optional (defaults to red).
-$footie-scope-warn: mat-palette($mat-red);
+$light-warn: mat-palette($mat-red);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$footie-scope-theme: mat-light-theme((
+$footie-scope-light-theme: mat-light-theme((
   color: (
-    primary: $footie-scope-primary,
-    accent: $footie-scope-accent,
-    warn: $footie-scope-warn,
-  )
-));
+  primary: $light-primary,
+  accent: $light-accent,
+  warn: $light-warn
+  )));
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include angular-material-theme($footie-scope-theme);
+  $footie-scope-dark-theme: mat-dark-theme((
+  color: (
+  primary: $light-primary,
+  accent: $light-accent,
+  warn: $light-warn
+  )));
 
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@media (prefers-color-scheme: light) {
+  @include angular-material-theme($footie-scope-light-theme);
+}
+
+@media (prefers-color-scheme: dark) {
+  @include angular-material-theme($footie-scope-dark-theme);
+}

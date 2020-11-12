@@ -1,5 +1,5 @@
 <div class="titleRow">
-    <h1> {{league?.league?.name}} </h1>
+    <h1 class="mat-h1"> {{league?.league?.name}} </h1>
 </div>
 <table mat-table #ClassicLeagueTable [dataSource]="standings">
     <ng-container matColumnDef="rank">
@@ -17,7 +17,7 @@
     <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Team Name & Manager </th>
         <td mat-cell *matCellDef="let standing"> 
-            <strong color="primary">{{standing.entry_name}}</strong>
+            <strong>{{standing.entry_name}}</strong>
             <p>{{standing.player_name}}</p>
         </td>
     </ng-container>
