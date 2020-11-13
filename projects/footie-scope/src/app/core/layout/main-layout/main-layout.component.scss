@@ -1,11 +1,18 @@
-.spacer {
-    flex: 1 0 auto;
-}
 
-button {
-    margin: 0 10px;
-}
+@mixin main-layout-theme($theme) {
+    $primary: map-get($map: $theme, $key: primary);
+    $accent: map-get($map: $theme, $key: accent);
+    $warn: map-get($map: $theme, $key: warn);
+    $background: map-get($map: $theme, $key: background);
+    .spacer {
+        flex: 1 0 auto;
+    }
 
-main {
-    margin: 1% 5%;
+    button {
+        margin: 0 10px;
+    }
+
+    main {
+        background: mat-color($background, background);
+    }
 }
