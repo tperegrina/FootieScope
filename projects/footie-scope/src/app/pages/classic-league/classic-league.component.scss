@@ -1,0 +1,25 @@
+
+@mixin classic-league-theme($theme) {
+    $primary: map-get($map: $theme, $key: primary);
+    $accent: map-get($map: $theme, $key: accent);
+    $warn: map-get($map: $theme, $key: warn);
+    $background: map-get($map: $theme, $key: background);
+    table.mat-table {
+        margin: auto;
+        width: 80%;
+    }
+    div.titleRow {
+        display: flex;
+        justify-content: center;
+        padding-top: 20px;
+        h1 {
+            color: mat-color($primary, default-contrast);
+        }
+    }
+    th.mat-header-cell {
+        padding: 0 5px;
+    }
+    strong {
+        color: mat-color($accent, default);
+    }
+}
