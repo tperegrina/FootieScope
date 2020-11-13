@@ -33,6 +33,12 @@
             <p>{{standing.total}}</p>
         </td>
     </ng-container>
-    <tr mat-header-row *matHeaderRowDef="['rank_icon','rank', 'name', 'gw_points', 'total_points']"></tr>
-    <tr mat-row *matRowDef="let row; columns: ['rank_icon', 'rank', 'name', 'gw_points', 'total_points'];"></tr>
+    <ng-container matColumnDef="points_to_next">
+        <th mat-header-cell *matHeaderCellDef> To Next </th>
+        <td mat-cell *matCellDef="let standing; let i = index"> 
+            <p>{{i>=1 ? standing.total - standings[i-1].total : 0}}</p>
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="['rank_icon','rank', 'name', 'gw_points', 'total_points', 'points_to_next']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['rank_icon', 'rank', 'name', 'gw_points', 'total_points', 'points_to_next'];"></tr>
 </table>
