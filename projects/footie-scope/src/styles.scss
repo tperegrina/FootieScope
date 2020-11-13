@@ -62,12 +62,12 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-@media (prefers-color-scheme: light) {
+.light-theme {
   @include angular-material-theme($footie-scope-light-theme);
   @include custom-components-theme($footie-scope-light-theme);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark-theme {
   @include angular-material-theme($footie-scope-dark-theme);
   @include custom-components-theme($footie-scope-dark-theme);
 }
