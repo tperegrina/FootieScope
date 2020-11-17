@@ -11,7 +11,7 @@ export class FplApiService {
   private url: string= 'http://fantasy.premierleague.com/api/'
   constructor(private http: HttpClient) { }
 
-  public getLeagueClassic(leagueId: number): Observable<LeagueClassic> {
+  public getLeagueClassic(leagueId: string): Observable<LeagueClassic> {
     let urlPrefix: string = 'leagues-classic/'
     let urlSuffix: string = '/standings/'
 

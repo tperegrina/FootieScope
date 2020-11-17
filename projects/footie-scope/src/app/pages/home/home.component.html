@@ -1,0 +1,13 @@
+<h2 >Search for a Classic League:</h2>
+
+<mat-form-field class="example-form-field">
+    <mat-label>Classic League</mat-label>
+    <input matInput type="text" [(ngModel)]="leagueId">
+    <button mat-button *ngIf="leagueId" matSuffix mat-icon-button aria-label="Clear" (click)="leagueId=''">
+        <mat-icon>close</mat-icon>
+    </button>
+</mat-form-field>
+<button mat-button mat-flat-button color="primary" [disabled]="leagueId === ''" aria-label="Search Classic League" 
+[routerLink]="['/classic-league', leagueId]">
+    Search
+</button>

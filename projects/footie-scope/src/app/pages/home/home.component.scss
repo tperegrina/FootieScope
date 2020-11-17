@@ -1,0 +1,10 @@
+@mixin home-theme($theme) {
+    $primary: map-get($map: $theme, $key: primary);
+    $accent: map-get($map: $theme, $key: accent);
+    $warn: map-get($map: $theme, $key: warn);
+    $background: map-get($map: $theme, $key: background);
+    
+    h2, input, button[mat-icon-button] {
+        color: mat-color($primary, default-contrast);
+    }
+}
